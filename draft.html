@@ -241,8 +241,8 @@ def rollout(agent, envparams, env):
 <h3>Joint learning of body design facilitates policy learning</h3>
 <p><em>BipedalWalkerHardcore-v2</em></p>
 <div style="text-align: center;">
-<video autoplay muted playsinline loop style="display: block; margin: auto; width: 100%;"><source src="assets/mp4/bipedhard_compare_vs_augment.mp4" type="video/mp4"/></video>
-<figcaption style="text-align: left;">Learning a policy to navigate forward in <i>BipedalWalker-v2</i> environment (left). Agent learns a body to allow it to bounce forward efficiently (right).</figcaption>
+<video autoplay muted playsinline loop style="display: block; margin: auto; width: 100%;"><source src="assets/mp4/augmentbipedhard_all.mp4" type="video/mp4"/></video>
+<figcaption style="text-align: left;">Learned body to efficiently navigate <i>BipedalWalkerHardcore-v2</i><dt-cite key="bipedalwalkerhardcore"></dt-cite>.</figcaption>
 </div>
 <p>Learning a better version of an agent's body not only helps achieve better performance, but also enables the agent to jointly learn policies more efficiently. We demonstrate this in the much more challenging <em>BipedalWalkerHardcore-v2</em><dt-cite key="bipedalwalkerhardcore"></dt-cite> version of the task. Unlike the easier version, the agent must also learn to walk over obstacles, travel up and down hilly terrain, and even jump over pits. As of writing, two methods are reported to solve this task. Population-based training<dt-cite key="stablees"></dt-cite> (our baseline), solves this task in 40 hours on a 96-CPU machine, using a small feed forward policy network. A3C<dt-cite key="mnih2016asynchronous"></dt-cite> adapted for continuous control<dt-cite key="griffis2018"></dt-cite> solves the task in 48 hours on a 72-CPU machine, but requires an LSTM<dt-cite key="lstm"></dt-cite> policy network.</p>
 <div style="text-align: center;">
