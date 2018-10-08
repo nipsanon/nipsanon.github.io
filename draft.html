@@ -197,15 +197,15 @@ dt-article figcaption b {
 <p>The goal is to learn <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02691em;">w</span></span></span></span> to maximize the expected cumulative reward, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>[</mo><mi>R</mi><mo>(</mo><mi>w</mi><mo>)</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">E[R(w)]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mclose">]</span></span></span></span>, of an agent acting on a policy with parameters <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02691em;">w</span></span></span></span> in an environment governed by the same <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02691em;">w</span></span></span></span>. In our approach, we search for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02691em;">w</span></span></span></span> using a population-based policy gradient method based on Section 6 of Williams' 1992 REINFORCE<dt-cite key="williams1992"></dt-cite>. The Appendix section provides an overview of this algorithm.</p>
 <div style="text-align: center;">
 <dt-code block language="python">
-def rollout(agent, env_params, env):
-  env.augment(env_params)
+def rollout(agent, envparams, env):
+  env.augment(envparams)
   obs = env.reset()
   done = False
   cumulative_reward = 0
   while not done:
     a = agent.action(obs)
     obs, r, done = env.step(a)
-    r = augment_reward(r, env_params)
+    r = augment_reward(r, envparams)
     cumulative_reward += r
   return cumulative_reward
 </dt-code>
